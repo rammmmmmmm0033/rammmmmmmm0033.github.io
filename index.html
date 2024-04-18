@@ -26,7 +26,6 @@
         flex: 1;
         max-width: 300px;
         padding: 20px;
-        /* background-color: #f2f2f2; */
       }
 
       .right {
@@ -38,8 +37,9 @@
       }
 
       .photo {
-        width: calc(50%);
-        margin: 20px;
+        width: 90%; /* 화면 크기에 따라 조절되도록 백분율로 설정 */
+        max-width: 600px; /* 최대 너비 설정 */
+        margin: 20px auto; /* 가운데 정렬 */
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       }
 
