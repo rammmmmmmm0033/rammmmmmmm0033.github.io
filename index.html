@@ -1,83 +1,310 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>포트폴리오</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      body {
-        font-family: "Amatic SC", cursive;
-        margin: 0;
-        padding: 0;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      max-width: 1200px; /* 최대 너비 설정 */
+      margin: 0 auto; /* 중앙 정렬 */
+      padding: 20px;
+    }
+    .content {
+      margin-top: 20px;
+    }
+    .ram {
+      font-family: Impact, sans-serif; /* Impact 폰트 적용 */
+      font-size: 48px;
+    }
+    .seoul {
+        font-family: Plantagenet Cherokee, sans-serif;
+        /* font-size: 24px; */
+    }
+    .skill {
+        font-family: STIXGeneral, sans-serif;
+    }
 
+    .project-title {
+        font-family: Times, sans-serif;
+    }
+
+    @font-face {
+  font-family: CustomFont;
+  src: url('./Minion\ Pro\ Cond\ Italic.otf') format('opentype');
+}
+    .project-content {
+    font-family: CustomFont, sans-serif;
+}
+
+.paint {
+    font-family: Myriad Pro, sans-serif;
+}
+
+    /* 미디어 쿼리를 사용하여 반응형 기능 제거 */
+    @media (max-width: 1200px) {
       .container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: flex-start;
+        width: 100%; /* 최대 너비가 1200px 이하일 때 100%로 설정 */
       }
+    }
+    .modal {
+      display: none; /* 초기에는 숨김 */
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.7); /* 배경색과 투명도 조절 */
+    }
+    .modal-content {
+      margin: 10% auto;
+      padding: 0 20px;
+      padding-bottom: 30px;
+      width: 500px;
+      background-color: white;
+      border: 1px solid #888;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+    .close {
+      color: #aaa;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .clickable-image {
+        cursor: pointer; /* 마우스를 가져다 대면 포인터 모양으로 변경 */
+        transition: opacity 0.3s; /* 부드러운 투명도 전환을 위한 transition 효과 추가 */
+    }
 
-      .left {
-        flex: 1;
-        max-width: 300px;
-        padding: 20px;
-      }
+    .clickable-image:hover {
+        opacity: 0.7; /* 마우스를 가져다 대면 이미지의 투명도를 줄임 */
+    }
+    .sub {
+        cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="ram">RAM LEE</h1>
+    <div class="content">
+      <div style="display: flex; ">
+        <div style="margin-right: 20px; color: #838282;">
+          <h2 class="seoul" style=" margin: 0;">SEOUL, KOREA</h2>
+          <h2 class="seoul" style="margin-bottom: 0; margin-top: 10px;">FASHION DESIGN</h2>
+          <h2 class="seoul" style="margin-bottom: 0; margin-top: 10px;">PAINTING</h2>
+        </div>
+        <div style="display: flex; flex-direction: column; border-left: 2px solid gray; margin-left: 30px; padding-left: 20px;">
+          <div class="skill">
+            <h4 style="margin: 0; margin-top: -8px; ">SKILLS</h4>
+            <p style="margin: 0; color: #aaa;">Painting</p>
+            <p style="margin: 0; margin-top: -8px; color: #aaa;">Eastern style painting</p>
+            <p style="margin: 0; margin-top: -8px; color: #aaa;">print & silk screen</p>
+            <p style="margin: 0; margin-top: -8px; color: #aaa;">Pattern cutting</p>
+            <p style="margin: 0; margin-top: -8px; color: #aaa;">Design (for woman)</p>
+            <p style="margin: 0; margin-top: -8px; color: #aaa;">Uka CAD & CLO</p>
+            <p style="margin: 0; margin-top: -8px; color: #aaa;">Digital Textile Design</p>
+            <p style="margin: 0; margin-top: -8px; color: #aaa;">Shoes & Bag design</p>
+                        <h4 style="margin: 0; margin-top: 8px;">CONTACT</h4>
+                        <div style="display: flex;">
+                            <img src="./IG_Glyph_Fill.png" style="width: 20px; height: 20px; margin-top: 1px;">
+<p style="margin: 0;">
+    <a href="https://www.instagram.com/ram_leeee/" style="color: #aaa; text-decoration: none;">@ram_leeee</a>
+</p>                        </div>
 
-      .right {
-        flex: 1;
-        padding: 20px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .photo {
-        width: 90%; /* 화면 크기에 따라 조절되도록 백분율로 설정 */
-        max-width: 600px; /* 최대 너비 설정 */
-        margin: 20px auto; /* 가운데 정렬 */
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
-
-      .left > div {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        height: 100%;
-      }
-
-      .left > div p {
-        margin: 5px 0;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="left">
-        <div style="margin-left: 180px">
-          <p style="font-size: 100px">Ram</p>
-          <p style="font-size: 30px">About me</p>
-          <p style="font-size: 30px">drawing</p>
+          </div>
         </div>
       </div>
-      <div class="right">
-        <img class="photo" src="./look1 -1.png" alt="Look 1-1" />
-        <img class="photo" src="./look1-2.png" alt="Look 1-2" />
-        <img class="photo" src="./look2-1.png" alt="Look 2-1" />
-        <img class="photo" src="./look2-2.png" alt="Look 2-2" />
-        <img class="photo" src="./look3.png" alt="Look 3" />
-        <img class="photo" src="./look4-1.png" alt="Look 4-1" />
-        <img class="photo" src="./look4-2.png" alt="Look 4-2" />
-        <img class="photo" src="./look5-1.png" alt="Look 5" />
-        <img class="photo" src="./look5-2.png" alt="Look 5" />
-        <img class="photo" src="./look6.png" alt="Look 6" />
-        <img class="photo" src="./look7.png" alt="Look 7" />
-        <!-- 추가적인 사진들을 원하실 경우 여기에 추가하세요 -->
-      </div>
     </div>
-  </body>
+  </div>
+
+  <div class="container">
+    <h3 class="project-title" style="font-size: 24px">PROJECT 1.</h3>
+    <h3 class="project-title" style="font-style: italic; font-size: 24px"">WHAT WILL HAPPEN AFTER SPLASH</h3>
+    <p class="project-content" style="font-size: 21px;color: rgb(85, 85, 85); margin-bottom: 40px;">What happens after Hockney's splash? <br>
+    Fashion can spend everyday life with human movement
+    if a painting can express the same as a dot of the moment. <br>
+    In that respect, I was inspired by Hockney's splashing water, 
+    and I would like to talk about fashion after that.</p>
+    <div>
+      <img src="./look1-2.gif" onclick="openModal1('./look1-2.gif')" class="clickable-image" style="width: 350px; margin-right: 15px;"></img>
+      <img src="./look2-2.png" onclick="openModal2('./look2-2.png')" class="clickable-image" style="width: 350px; margin-right: 15px;"></img>
+      <img src="./look3.png" onclick="openModal3('./look3.png')"  class="clickable-image" style="width: 350px"></img>
+    </div>
+  </div>
+  <div class="container">
+    <h3 class="project-title" style="font-size: 24px">PROJECT 2.</h3>
+    <h3 class="project-title" style="font-style: italic; font-size: 24px">MEDIVAL VILLAINS</h3>
+    <p class="project-content" style="font-size: 21px; color: rgb(85, 85, 85); margin-bottom: 40px;">The question arises as to why villains are expressed darkly.<br> Knowing that the etymology of villains was peasantry, the word villain was added to the word evil after their urbanization life.<br> At that time, the adaptation of peasants was linked to medieval peddlers to express their adaptation to urbanization.</p>
+    <div>
+      <img src="./look4-1.png" onclick="openModal4('./look4-1.png')" class="clickable-image" style="width: 350px; margin-right: 15px;"></img>
+      <img src="./look5-1.png" onclick="openModal5('./look5-1.png')"  class="clickable-image" style="width: 350px; margin-right: 15px;"></img>
+      <img src="./look4-2.png" onclick="openModal6('./look4-2.png')" class="clickable-image" style="width: 350px; "></img>
+    </div>
+  </div>
+  <div class="container">
+    <h3 class="project-title" style="font-size: 24px">PAINTING</h3>
+    <h3 class="project-title" style="font-style: italic; font-size: 24px; margin-bottom: 40px;">NATURE AND COLOR </h3>
+    <div>
+      <img src="./paint1.jpeg" style="width: 350px; height: 410px;"></img>
+      <img src="./paint2.jpeg" style="width: 380px; margin-bottom: 113px;"></img>
+      <img src="./paint3.jpeg" style="width: 350px; height: 410px;"></img>
+    </div>
+    <div>
+      <p class="paint">1. &lt;UNTITLED&gt;, ACRYLIC ON CANVAS, 72.7 x 60.6 2021<br>
+      2.&lt;UNTITLED&gt;, ACRYLIC ON CANVAS, 100.0 x 80.3cm 2021<br>
+      3.&lt;UNTITLED&gt;, ACRYLIC ON CANVAS, 116.8 x 90.0cm 2021</p>
+    </div>
+  </div>
+<div id="myModal1" class="modal">
+    <div class="modal-content">
+        <div style="display:flex; width: 100%; justify-content: flex-end;">
+            <span class="close" onclick="closeModal('myModal1')">&times;</span>
+        </div>
+        <!-- 1-1 사진 -->
+        <div class="main-image-container" style="display: flex;">
+    <img src="./look1-2.gif" class="main-image" style="width: 400px; " />
+    <div style="display: flex; flex-direction: column;">
+        <img src="./look1-a.png" class="sub" style="width:100px" onclick="changeMainImage('./look1-a.png')"></img>
+        <img src="./look1-b.png" class="sub" style="width:100px" onclick="changeMainImage('./look1-b.png')"></img>
+        <img src="./look1-c.png" class="sub" style="width:100px" onclick="changeMainImage('./look1-c.png')"></img>
+        <img src="./look1-1.png" class="sub" style="width:100px" onclick="changeMainImage('./look1-1.png')"></img>
+    </div>
+</div>
+    </div>
+</div>
+<div id="myModal2" class="modal">
+    <div class="modal-content">
+        <div style="display:flex; width: 100%; justify-content: flex-end;">
+            <span class="close" onclick="closeModal('myModal2')">&times;</span>
+        </div>
+        <!-- 1-2 사진 -->
+        <div class="main-image-container" style="display: flex;">
+            <img src="./look2-2.png" class="main-image" style="width: 400px; " />
+            <div style="display: flex; flex-direction: column;">
+                <img src="./look2-a.png" class="sub" style="width:100px" onclick="changeMainImageModal2('./look2-a.png')"></img>
+                <img src="./look2-b.png" class="sub" style="width:100px" onclick="changeMainImageModal2('./look2-b.png')"></img>
+                <img src="./look2-c.png" class="sub" style="width:100px" onclick="changeMainImageModal2('./look2-c.png')"></img>
+                <img src="./look2-1.png" class="sub" style="width:100px" onclick="changeMainImageModal2('./look2-1.png')"></img>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="myModal3" class="modal">
+    <div class="modal-content">
+        <div style="display:flex; width: 100%; justify-content: flex-end;">
+            <span class="close" onclick="closeModal('myModal3')">&times;</span>
+        </div>
+        <!-- 1-3 사진 -->
+        <div class="main-image-container"  style="display: flex;">
+            <img src="./look3.png" class="main-image" style="width: 400px; " />
+            <div style="display: flex; flex-direction: column;">
+                <img src="./look3-a.png" class="sub" style="width:100px" onclick="changeMainImageModal3('./look3-a.png')"></img>
+                <img src="./look3-b.png" class="sub" style="width:100px" onclick="changeMainImageModal3('./look3-b.png')"></img>
+                <img src="./look3-c.png" class="sub" style="width:100px" onclick="changeMainImageModal3('./look3-c.png')"></img>
+                <img src="./look3.png"  class="sub" style="width:100px" onclick="changeMainImageModal3('./look3.png')"></img>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="myModal4" class="modal">
+    <div class="modal-content">
+        <div style="display:flex; width: 100%; justify-content: flex-end;">
+            <span class="close" onclick="closeModal('myModal4')">&times;</span>
+        </div>
+        <!-- 2-1 사진 -->
+        <div class="main-image-container"  style="display: flex;">
+            <img src="./look4-1.png" class="main-image" style="width: 400px; " />
+            <div style="display: flex; flex-direction: column;">
+                <img src="./look4-a.png" class="sub" style="width:100px" onclick="changeMainImageModal4('./look4-a.png')"></img>
+                <img src="./look4-b.png" class="sub" style="width:100px" onclick="changeMainImageModal4('./look4-b.png')"></img>
+                <img src="./look4-c.png" class="sub" style="width:100px" onclick="changeMainImageModal4('./look4-c.png')"></img>
+                <img src="./look4-2.png" class="sub" style="width:100px" onclick="changeMainImageModal4('./look4-2.png')"></img>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="myModal5" class="modal">
+    <div class="modal-content">
+        <div style="display:flex; width: 100%; justify-content: flex-end;">
+            <span class="close" onclick="closeModal('myModal5')">&times;</span>
+        </div>
+        <!-- 2-2 사진 -->
+        <div class="main-image-container" style="display: flex;">
+            <img src="./look5-1.png" class="main-image" style="width: 400px; " />
+            <div style="display: flex; flex-direction: column;">
+                <img src="./look5-a.png" class="sub" style="width:100px" onclick="changeMainImageModal5('./look5-a.png')"></img>
+                <img src="./look5-b.png" class="sub" style="width:100px" onclick="changeMainImageModal5('./look5-b.png')"></img>
+                <img src="./look5-2.png" class="sub" style="width:100px" onclick="changeMainImageModal5('./look5-2.png')"></img>
+                <img src="./look5-1.png" class="sub" style="width:100px" onclick="changeMainImageModal5('./look5-1.png')"></img>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+  <script>
+     function openModal1() {
+        var modal = document.getElementById('myModal1');
+        modal.style.display = 'block'; // 모달 보이기
+    }
+
+    function openModal2() {
+        var modal = document.getElementById('myModal2');
+        modal.style.display = 'block'; // 모달 보이기
+    }
+
+    function openModal3() {
+        var modal = document.getElementById('myModal3');
+        modal.style.display = 'block'; // 모달 보이기
+    }
+     function openModal4() {
+        var modal = document.getElementById('myModal4');
+        modal.style.display = 'block'; // 모달 보이기
+    }
+      function openModal5() {
+        var modal = document.getElementById('myModal5');
+        modal.style.display = 'block'; // 모달 보이기
+    }
+
+    // 모달 닫기
+    function closeModal(modalId) {
+        var modal = document.getElementById(modalId);
+        modal.style.display = 'none'; // 모달 숨기기
+    }
+
+   function changeMainImage(src) {
+        var mainImage = document.querySelector('.main-image'); // 메인 이미지 요소 가져오기
+        mainImage.src = src; // 클릭한 이미지의 경로를 메인 이미지로 설정
+    }
+      function changeMainImageModal2(src) {
+        var mainImage = document.querySelector('#myModal2 .main-image'); // 두 번째 모달의 메인 이미지 요소 가져오기
+        mainImage.src = src; // 클릭한 이미지의 경로를 메인 이미지로 설정
+    }
+    function changeMainImageModal3(src) {
+        var mainImage = document.querySelector('#myModal3 .main-image'); // 세 번째 모달의 메인 이미지 요소 가져오기
+        mainImage.src = src; // 클릭한 이미지의 경로를 메인 이미지로 설정
+    }
+    function changeMainImageModal4(src) {
+        var mainImage = document.querySelector('#myModal4 .main-image'); // 네 번째 모달의 메인 이미지 요소 가져오기
+        mainImage.src = src; // 클릭한 이미지의 경로를 메인 이미지로 설정
+    }
+    function changeMainImageModal5(src) {
+        var mainImage = document.querySelector('#myModal5 .main-image'); // 다섯 번째 모달의 메인 이미지 요소 가져오기
+        mainImage.src = src; // 클릭한 이미지의 경로를 메인 이미지로 설정
+    }
+  </script>
+</body>
 </html>
